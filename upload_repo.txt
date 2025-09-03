@@ -1,47 +1,32 @@
+#!/bin/bash
 # ===============================
-# Script Upload Fresh ke GitHub Pages
+# Upload Fresh Folder + index.html ke GitHub Pages
 # ===============================
 
-# 1️⃣ Masuk folder project hasil ekstrak
-cd C:/Users/LENOVO/Documents/har-website/echa_rangga
+# 1️⃣ Masuk folder project lokal (ganti path sesuai folder lo)
+cd C:Users/LENOVO/Documents/har-website/result
 
-# 2️⃣ Ekstrak zip (ganti nama file zip kalau beda)
-# Hanya perlu kalau file zip masih ada
-# unzip ../(isi.zip) -d .
+# 2️⃣ Hapus semua file/folder di repo lokal agar bersih
+# WARNING: Pastikan ini folder project yang benar
+git rm -r *
+git commit -m "Hapus semua file lama"
 
-# 3️⃣ Pastikan index.html ada di root, pindahkan kalau perlu
-# mv extracted_files/html/index.html .
+# 3️⃣ Tambahkan file/folder yang mau di-upload saja
+git add index.html
+git add result/
 
-# 4️⃣ Tambahkan semua file baru ke Git
-git add .
+# 4️⃣ Commit file baru
+git commit -m "Upload folder result + index.html fresh"
 
-# 5️⃣ Commit perubahan
-git commit -m "echa_rangga dan index.html"
-
-# 6️⃣ Pastikan branch utama bernama 'main'
+# 5️⃣ Pastikan branch utama bernama main
 git branch -M main
 
-# 7️⃣ Tambahkan remote GitHub (ganti URL repo lo)
-git remote add origin https://github.com/yuddiprattama-eng/echa_rangga.git
+# 6️⃣ Set remote repo GitHub (ganti URL sesuai repo lo)
+git remote set-url origin https://github.com/yuddiprattama-eng/file.git
 
-# 8️⃣ Force push ke GitHub (overwrite remote)
+# 7️⃣ Force push ke GitHub (overwrite remote)
 git push -u origin main --force
 
 # ✅ Selesai
 echo "Upload selesai! Tunggu beberapa menit lalu cek:"
-echo "https://github.com/yuddiprattama-eng/echa_rangga.git"
-
-# Update URL Link github
-git remote set-url origin https://github.com/yuddiprattama-eng/echa_rangga.git 
-
-# 1️⃣ Tambahkan semua file
-git add .
-
-# 2️⃣ Commit perubahan
-git commit -m "Fresh upload hasil ekstrak zip"
-
-# 3️⃣ Pastikan branch utama bernama main
-git bra	nch -M main
-
-# 4️⃣ Push ke GitHub dengan force (overwrite remote)
-git push -u origin main --force
+echo "https://yuddiprattama-eng.github.io/echa_rangga/"
